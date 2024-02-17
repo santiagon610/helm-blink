@@ -21,11 +21,7 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-env:
-  - name: PIZZA
-    value: "pepperoni"
-  - name: BUMP
-    value: "1"
+env: []
 
 podAnnotations: {}
 podLabels: {}
@@ -103,3 +99,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+postgresql:
+  enabled: false
+
+redis:
+  enabled: false

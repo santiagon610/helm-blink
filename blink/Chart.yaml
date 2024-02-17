@@ -1,0 +1,18 @@
+apiVersion: v2
+name: "blink"
+description: Modern, lightweight, planet-scale link shortener for teams
+type: application
+keywords:
+  - blink
+  - url_shortener
+  - link_shortener
+  - nodejs
+sources:
+  - https://github.com/santiagon610/helm-blink
+  - https://github.com/JaneJeon/blink
+maintainers:
+  - name: santiagon610
+    email: yo@santiago.wtf
+    url: https://nicholas.santiago.wtf/
+version: 0.1.0
+appVersion: "1.4.0"

@@ -81,6 +81,8 @@ readinessProbe:
     initialDelaySeconds: 30
     periodSeconds: 2
 
+nodeExtraCaCerts: ""
+
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo

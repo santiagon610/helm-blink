@@ -38,6 +38,10 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
+            {{- if .Values.nodeExtraCaCerts }}
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/tmp/certs/node-extra-ca-certs.crt"
+            {{- end }}
             {{- range .Values.env }}
             - name: {{ .name }}
               value: {{ .value }}
@@ -56,6 +60,14 @@ spec:
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+        {{- if .Values.nodeExtraCaCerts }}
+        - name: node-extra-ca-certs
+          configMap:
+            name: {{ include "blink.fullname" . }}
+            items:
+              - key: node-extra-ca-certs
+                path: node-extra-ca-certs.crt
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

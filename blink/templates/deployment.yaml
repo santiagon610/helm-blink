@@ -60,14 +60,14 @@ spec:
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-        {{- if .Values.nodeExtraCaCerts }}
-        - name: node-extra-ca-certs
-          configMap:
-            name: {{ include "blink.fullname" . }}
-            items:
-              - key: node-extra-ca-certs
-                path: node-extra-ca-certs.crt
-        {{- end }}
+          {{- if .Values.nodeExtraCaCerts }}
+          - name: node-extra-ca-certs
+            configMap:
+              name: {{ include "blink.fullname" . }}
+              items:
+                - key: node-extra-ca-certs
+                  path: node-extra-ca-certs.crt
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

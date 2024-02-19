@@ -94,6 +94,10 @@ tolerations: []
 
 affinity: {}
 
+vpa:
+  enabled: false
+  updateMode: "Recreate"
+
 postgresql:
   enabled: false
 
